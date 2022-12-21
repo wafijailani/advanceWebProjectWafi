@@ -34,7 +34,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="/staffedit">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -54,7 +54,7 @@
 
               <tr>
                 @foreach($items as $item)
-                <td>{{$item->studentid}}</td>
+                <td>{{$item->id}}</td>
                 <td>{{$item->studentname}}</td>
                 <td>{{$item->projecttitle}}</td>
                 <td>{{$item->supervisor}}</td>

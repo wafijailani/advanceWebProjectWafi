@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 @foreach($items as $item)
-                <td>{{$item->studentid}}</td>
+                <td>{{$item->id}}</td>
                 <td>{{$item->studentname}}</td>
                 <td>{{$item->projecttitle}}</td>
                 <td>{{$item->supervisor}}</td>

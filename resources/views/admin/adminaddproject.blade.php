@@ -66,7 +66,7 @@
 
                         <div class="form-group mb-3">
                             <label for="">Student ID</label>
-                            <input type="text" name="studentid" class="form-control">
+                            <input type="text" name="id" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Student Name</label>
@@ -84,6 +84,7 @@
                             @endforeach
                         </select>
                         </div>
+                        
                         <div class="form-group mb-3">
                             <label for="">Examiner 1 </label>
                             <select name="examiner1" class="form-control">

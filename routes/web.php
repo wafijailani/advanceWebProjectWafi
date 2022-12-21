@@ -19,6 +19,11 @@ Route::get('/viewstaffproj',[homeControl::class,'viewProjectSV']);
 
 Route::get('/viewstaffexaminer',[homeControl::class,'ViewProjectExaminer']);
 
+Route::get('/staffedit',[homeControl::class,'editProject']);
+
+Route::get('staffedit/{id}', [homeControl::class, 'editProject2']);
+
+Route::put('update/{id}', [homeControl::class, 'update']);
 
 Route::post('/addproj', [homeControl::class, 'store']);
 

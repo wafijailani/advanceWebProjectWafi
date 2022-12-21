@@ -26,7 +26,7 @@
 
    
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/addproj">
+            <a class="nav-link" href="/viewstaffexaminer">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
@@ -34,7 +34,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="/staffedit">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>

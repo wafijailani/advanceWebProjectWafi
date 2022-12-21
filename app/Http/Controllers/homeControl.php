@@ -29,6 +29,28 @@ class homeControl extends Controller
 
     }
 
+    public function editProject(){
+        return view("staff.staffedit"); 
+
+    }
+
+    public function editProject2($id)
+    {
+        $student = DB::table('projects')->where('id','=',$id)->first();
+        return view('staff.staffedit', compact('student'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Project::find($id);
+        $student->id = $request->input('id');
+        $student->studentname = $request->input('studentname');
+        $student->projecttitle = $request->input('projecttitle');
+        $student->startdate = $request->input('startdate');
+        $student->update();
+        return redirect('/viewstaffproj')->with('status','Student Updated Successfully');
+    }
+    
     public function getStaff()
     {
     $items = DB::table('users')->where('usertype','=',0)->get();
@@ -57,7 +79,7 @@ class homeControl extends Controller
     public function store(Request $request)
     {
         $project = new Project;
-        $project->studentid = $request->input('studentid');
+        $project->id = $request->input('id');
         $project->studentname = $request->input('studentname');
         $project->projecttitle = $request->input('projecttitle');
         $project->supervisor = $request->input('supervisor');
