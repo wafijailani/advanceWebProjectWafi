@@ -6,9 +6,13 @@
   </head>
   <body>
   @include("admin.navbar")
+
       <div class="col-lg-10 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+                @endif
                     <h4 class="card-title">View All Projects</h4>
                     <div class="table-responsive">
                       <table class="table">
@@ -41,7 +45,7 @@
                 <td>{{$item->progress}}</td>
                 <td>{{$item->status}}</td>
                 <td><a href="{{ url('adminedit/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a></td>
-                <td><a href="{{ url('staffedit/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a></td>
+                <td><a href="{{ url('admindelete/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a></td>
                 
             </tr>
             @endforeach

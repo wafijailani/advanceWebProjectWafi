@@ -1,4 +1,4 @@
-<x-app-layout></x-app-layout>
+<x-app-layout>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +6,72 @@
 @include("admin.admincss")
 </head>
 <body>
-@in
-@include("admin.script")          
+@include("admin.navbar")
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Edit Student and Project Details</h4>
+                </div>
+                @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+                @endif
+                <div class="card-body">
+
+                    <form action="{{ url('adminupdate/'.$student->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="form-group mb-3">
+                            <label for="">Student ID</label>
+                            <input type="text" name="id" value = "{{$student->id}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Student Name</label>
+                            <input type="text" name="studentname" value = "{{$student->studentname}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Project Title</label>
+                            <input type="text" name="projecttitle" value = "{{$student->projecttitle}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Start Date</label>
+                            <input type="date" name="startdate" value = "{{$student->startdate}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">End Date</label>
+                            <input type="date" name="enddate" value = "{{$student->enddate}}" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Project Progress</label>
+                            <select name="progress" class="js-example-basic-single" style="width: 100%;" >
+                            <option selected value="{{$student->progress}}">Current Status : {{$student->progress}}</option>
+                            <option value="Milestone 1">Milestone 1</option>
+                            <option value="Milestone 2">Milestone 2</option>
+                            <option value="Final Report">Final Report</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Project Status</label>
+                            <select name="status" class="js-example-basic-single" style="width: 100%;">
+                            <option selected value="{{$student->status}}">Current Status : {{$student->status}}</option>
+                            <option value="On Track">On Track</option>
+                            <option value="Delayed">Delayed</option>
+                            <option value="Completed">Completed</option>
+                            </select>                        
+                        </div>
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary">Save Student</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include("admin.script")  
 </body>
 </html>
-
+</x-app-layout>

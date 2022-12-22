@@ -25,7 +25,6 @@
                             <th>End Date</th>
                             <th>Project Progress</th>
                             <th>Project Status</th>
-
                           </tr>
                         </thead>
                         <tbody>

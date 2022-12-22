@@ -33,6 +33,8 @@ Route::put('adminupdate/{id}', [homeControl::class, 'adminupdate']);
 
 Route::post('/addproj', [homeControl::class, 'store']);
 
+Route::get('admindelete/{id}', [homeControl::class, 'destroy']);
+
 
 Route::middleware([
     'auth:sanctum',

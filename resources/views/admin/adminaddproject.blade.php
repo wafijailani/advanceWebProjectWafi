@@ -4,6 +4,21 @@
 <html lang="en">
 <head>
 @include("admin.admincss")
+<style>
+select option[disabled] {
+    display: none;
+}
+</style>
+
+<script>
+jQuery(document).ready(function($){
+    $('#examiner1').on('change', function(e){
+        var className = e.target.value;
+        $('#examiner2 option').prop('disabled', true);
+        $('#examiner2').find('option.' + className).prop('disabled', false);
+    });
+});
+</script>
 </head>
 <body>
 @include("admin.navbar")
@@ -53,7 +68,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Examiner 2</label>
-                            <select name="examiner2" class="js-example-basic-single" style="width: 100%;>
+                            <select name="examiner2" class="js-example-basic-single" style="width: 100%;">
                             @foreach($items as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach

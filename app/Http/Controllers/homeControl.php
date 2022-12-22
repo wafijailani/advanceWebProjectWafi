@@ -47,8 +47,11 @@ class homeControl extends Controller
         $student->studentname = $request->input('studentname');
         $student->projecttitle = $request->input('projecttitle');
         $student->startdate = $request->input('startdate');
+        $student->enddate = $request->input('enddate');
+        $student->progress = $request->input('progress');
+        $student->status = $request->input('status');
         $student->update();
-        return redirect('/viewstaffproj')->with('status','Student Updated Successfully');
+        return redirect()->back()->with('status','Project Details Updated Successfully');
     }
 
     public function admineditProject(){
@@ -69,17 +72,23 @@ class homeControl extends Controller
         $student->studentname = $request->input('studentname');
         $student->projecttitle = $request->input('projecttitle');
         $student->startdate = $request->input('startdate');
-        $student->startdate = $request->input('enddate');
-        $student->startdate = $request->input('progress');
-        $student->startdate = $request->input('status');
+        $student->enddate = $request->input('enddate');
+        $student->progress = $request->input('progress');
+        $student->status = $request->input('status');
         $student->update();
-        return redirect()->back()->with('status','Student Added Successfully');
+        return redirect()->back()->with('status','Project Details Updated Successfully');
     }
     
     public function getStaff()
     {
     $items = DB::table('users')->where('usertype','=',0)->get();
     return view('admin.adminaddproject', compact (('items')));
+    }
+
+    public function destroy($id)
+    {
+        $item = DB::table('projects')->where('id','=',$id)->delete();
+        return redirect()->back()->with('status','Project Details Deleted Successfully');
     }
 
     public function viewProjectSV()

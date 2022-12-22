@@ -47,7 +47,8 @@
                         </div>
                         <div class="form-group mb-3">
                         <label for="">Project Progress</label>
-                        <select name="progress" class="form-control">
+                        <select name="progress" class="js-example-basic-single" style="width: 100%;">
+                        <option selected value="{{$student->progress}}">Current Status : {{$student->progress}}</option>
                         <option value="Milestone 1">Milestone 1</option>
                         <option value="Milestone 2">Milestone 2</option>
                         <option value="Final Report">Final Report</option>
@@ -55,10 +56,10 @@
                         </div>
                         <div class="form-group mb-3">
                         <label for="">Project Status</label>
-                        <select name="status" class="form-control">
+                        <select name="status" class="js-example-basic-single" style="width: 100%;">
+                        <option selected value="{{$student->status}}">Current Status : {{$student->status}}</option>
                         <option value="On Track">On Track</option>
                         <option value="Delayed">Delayed</option>
-                        <option value="Extended">Extended</option>
                         <option value="Completed">Completed</option>
                         </select>
                         </div>
