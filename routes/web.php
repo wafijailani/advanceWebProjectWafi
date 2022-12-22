@@ -25,6 +25,12 @@ Route::get('staffedit/{id}', [homeControl::class, 'editProject2']);
 
 Route::put('update/{id}', [homeControl::class, 'update']);
 
+Route::get('/admin',[homeControl::class,'admineditProject']);
+
+Route::get('adminedit/{id}', [homeControl::class, 'admineditProject2']);
+
+Route::put('adminupdate/{id}', [homeControl::class, 'adminupdate']);
+
 Route::post('/addproj', [homeControl::class, 'store']);
 
 

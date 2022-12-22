@@ -1,58 +1,35 @@
-<x-app-layout>
+<x-app-layout></x-app-layout>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+@include("staff.staffcss")
 </head>
 <body>
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        <ul class="nav">
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="/viewstaffproj">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">View Projects as Supervisor</span>
-            </a>
-          </li>
+@include("staff.staffnavbar")
+<div class="col-lg-10 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">View Projects as Examiner</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Project Title</th>
+                            <th>Supervisor</th>
+                            <th>Examiner1</th>
+                            <th>Examiner2</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Project Progress</th>
+                            <th>Project Status</th>
 
-   
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="/viewstaffexaminer">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">View Projects as Examiner</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="/staffedit">
-              <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
-              </span>
-              <span class="menu-title">Update Projects as Supervisor</span>
-            </a>
-          </li>
-</ul>
-</nav>
-            <table border = "border">
-            <tr>
-                <td>Student ID</td>
-                <td>Student Name</td>
-                <td>Project Title</td>
-                <td>Supervisor</td>
-                <td>Examiner 1</td>
-                <td>Examiner 2</td>
-
-              <tr>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
                 @foreach($items as $item)
                 <td>{{$item->id}}</td>
                 <td>{{$item->studentname}}</td>
@@ -60,10 +37,17 @@
                 <td>{{$item->supervisor}}</td>
                 <td>{{$item->examiner1}}</td>
                 <td>{{$item->examiner2}}</td>
-                
+                <td>{{$item->startdate}}</td>
+                <td>{{$item->enddate}}</td>
+                <td>{{$item->progress}}</td>
+                <td>{{$item->status}}</td>
             </tr>
             @endforeach
-            </table>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
 </body>
 </html>
-</x-app-layout>

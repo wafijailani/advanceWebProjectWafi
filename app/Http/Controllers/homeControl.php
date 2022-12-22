@@ -50,6 +50,31 @@ class homeControl extends Controller
         $student->update();
         return redirect('/viewstaffproj')->with('status','Student Updated Successfully');
     }
+
+    public function admineditProject(){
+        return view("admin.adminedit"); 
+
+    }
+
+    public function admineditProject2($id)
+    {
+        $student = DB::table('projects')->where('id','=',$id)->first();
+        return view('admin.adminedit', compact('student'));
+    }
+
+    public function adminupdate(Request $request, $id)
+    {
+        $student = Project::find($id);
+        $student->id = $request->input('id');
+        $student->studentname = $request->input('studentname');
+        $student->projecttitle = $request->input('projecttitle');
+        $student->startdate = $request->input('startdate');
+        $student->startdate = $request->input('enddate');
+        $student->startdate = $request->input('progress');
+        $student->startdate = $request->input('status');
+        $student->update();
+        return redirect()->back()->with('status','Student Added Successfully');
+    }
     
     public function getStaff()
     {

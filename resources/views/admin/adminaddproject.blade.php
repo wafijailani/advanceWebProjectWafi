@@ -3,62 +3,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+@include("admin.admincss")
 </head>
 <body>
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        <ul class="nav">
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="users">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-              <span class="menu-title">View All Projects</span>
-            </a>
-          </li>
-
-   
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="addproject">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Create Project and Assign</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
-              </span>
-              <span class="menu-title">Chefs</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-chart-bar"></i>
-              </span>
-              <span class="menu-title">Reservations</span>
-            </a>
-          </li>
-</ul>
-</nav>
-
+@include("admin.navbar")
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Student</h4>
+                    <h4>Add Student and Project</h4>
                 </div>
+                @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+                @endif
                 <div class="card-body">
 
                     <form action="{{ url('/addproj') }}" method="POST">
@@ -78,7 +36,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Supervisor</label>
-                            <select name="supervisor" class="form-control">
+                            <select name="supervisor" class="js-example-basic-single" style="width: 100%;">
                             @foreach($items as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
@@ -87,7 +45,7 @@
                         
                         <div class="form-group mb-3">
                             <label for="">Examiner 1 </label>
-                            <select name="examiner1" class="form-control">
+                            <select name="examiner1" class="js-example-basic-single" style="width: 100%;">
                             @foreach($items as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
@@ -95,7 +53,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Examiner 2</label>
-                            <select name="examiner2" class="form-control">
+                            <select name="examiner2" class="js-example-basic-single" style="width: 100%;>
                             @foreach($items as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
@@ -111,7 +69,7 @@
         </div>
     </div>
 </div>
-          
+@include("admin.script")  
 </body>
 </html>
 </x-app-layout>
