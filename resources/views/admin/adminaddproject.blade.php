@@ -4,21 +4,6 @@
 <html lang="en">
 <head>
 @include("admin.admincss")
-<style>
-select option[disabled] {
-    display: none;
-}
-</style>
-
-<script>
-jQuery(document).ready(function($){
-    $('#examiner1').on('change', function(e){
-        var className = e.target.value;
-        $('#examiner2 option').prop('disabled', true);
-        $('#examiner2').find('option.' + className).prop('disabled', false);
-    });
-});
-</script>
 </head>
 <body>
 @include("admin.navbar")

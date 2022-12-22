@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Project;
 
-
 class homeControl extends Controller
 {
     public function redirectFunct(){
