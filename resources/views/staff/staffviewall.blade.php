@@ -15,7 +15,6 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Student ID</th>
                             <th>Student Name</th>
                             <th>Project Title</th>
                             <th>Supervisor</th>
@@ -30,7 +29,6 @@
                         <tbody>
                         <tr>
                 @foreach($items as $item)
-                <td>{{$item->id}}</td>
                 <td>{{$item->studentname}}</td>
                 <td>{{$item->projecttitle}}</td>
                 <td>{{$item->supervisor}}</td>
@@ -46,6 +44,7 @@
             @endforeach
                         </tbody>
                       </table>
+                      {{ $items->links() }}
                     </div>
                   </div>
                 </div>

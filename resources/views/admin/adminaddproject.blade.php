@@ -24,36 +24,40 @@
 
                         <div class="form-group mb-3">
                             <label for="">Student ID</label>
-                            <input type="text" name="id" class="form-control">
+                            <input type="text" name="id" class="form-control" required>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3">  
                             <label for="">Student Name</label>
-                            <input type="text" name="studentname" class="form-control">
+                            <input type="text" name="studentname" class="form-control" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Project Title</label>
-                            <input type="text" name="projecttitle" class="form-control">
+                            <input type="text" name="projecttitle" class="form-control" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Supervisor</label>
-                            <select name="supervisor" class="js-example-basic-single" style="width: 100%;">
+                            <select name="supervisor" class="js-example-basic-single" style="width: 100%;" required>
+                            <option value="" disabled selected>Choose option</option>
                             @foreach($items as $item)
-                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            <option value="{{ $item->name }}">{{ $item->name }} </option >
                             @endforeach
                         </select>
-                        </div>
-                        
+                        </div> 
                         <div class="form-group mb-3">
                             <label for="">Examiner 1 </label>
-                            <select name="examiner1" class="js-example-basic-single" style="width: 100%;">
+                            <select name="examiner1" class="js-example-basic-single" style="width: 100%;" required>
+                            <option value="" disabled selected>Choose option</option>
                             @foreach($items as $item)
+
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
+
                             @endforeach
                         </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Examiner 2</label>
-                            <select name="examiner2" class="js-example-basic-single" style="width: 100%;">
+                            <select name="examiner2" class="js-example-basic-single" style="width: 100%;" required>
+                            <option value="" disabled selected>Choose option</option>
                             @foreach($items as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach

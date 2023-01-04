@@ -39,11 +39,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Project Start Date</label>
-                            <input type="date"  name="startdate" value="{{$student->startdate}}" min="2022-01-01" max="2024-12-31">
+                            <input type="date"  name="startdate" value="{{$student->startdate}}" min="2022-01-01" max="2024-12-31" class="form-control"> 
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Project End Date</label>
-                            <input type="date"  name="enddate" value="{{$student->enddate}}" min="2022-01-01" max="2024-12-31">
+                            <input type="date"  name="enddate" value="{{$student->enddate}}" min="2022-01-01" max="2024-12-31" class="form-control">
                         </div>
                         <div class="form-group mb-3">
                         <label for="">Project Progress</label>
